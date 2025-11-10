@@ -13,7 +13,6 @@ export class Starter {
   init() {
     clearScreen();
     this.animalRenderer.renderAnimal();
-    console.log();
   }
 
   start() {
