@@ -7,7 +7,7 @@
 
 > simply implemented: <br/>
 > each frame shortens the pepro-stick to create a behavior of 'eating' sequence <br/>
-> rendered with ansi-escape codes. [wiki-podia](https://en.wikipedia.org/wiki/ANSI_escape_code)
+> rendered with ansi-escape codes. [ANSI excape code - Wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code)
 
 ### Run Locally
 > Node.js (v20 or higher) <br/>
@@ -30,9 +30,8 @@ npx ts-node src/main.ts
 ```
 
 ### Add Your Own Animal
-> To add a new animal
-1. Open `src/models/face.ts`
-2. Create a new Animal Face
+> 1. Open `src/models/face.ts`
+> 2. Create a new Animal Face
 ```typescript
 const DRAGON: Animal = {
   name: "DRAGON",
@@ -42,8 +41,32 @@ const DRAGON: Animal = {
   },
 };
 ```
-3. Add to export list
+> 3. Add to export list
 ```typescript
 
 export const ANIMALS: Animal[] = [CAT, TIGER, RABBIT, PIG, DRAGON]; // dragon added
 ```
+
+### Add Your Own Pepero Flavor
+> 1. Open `src/const/color.ts`
+> 2. Modify of Create new Color
+```typescript
+export const FLAVORS_COLOR = [
+  // ...
+  {
+    name: "BASE",
+    code: "\x1b[38;5;94m",
+  },
+  // ...
+  {
+    name: "NEW_COLOR",
+    code: "\x1b[38;5;{COLOR_CODE}m",
+    // {color_code} --> find code from following reference
+  },
+  
+];
+```
+> table from [ANSI excape code - Wikipedia:COLORS](https://en.wikipedia.org/wiki/ANSI_escape_code#Colors)
+
+> <img width="800" height="284" alt="image" src="https://github.com/user-attachments/assets/7790f936-88c2-4960-b0b6-5f2eead5f9a4" />
+
