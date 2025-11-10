@@ -12,7 +12,7 @@ const TIGER: Animal = {
   name: "TIGER",
   face: {
     ears: " /\\_/\\ ",
-    eyes: "( =.= )",
+    eyes: "( =,= )",
   },
 };
 
@@ -24,4 +24,12 @@ const RABBIT: Animal = {
   },
 };
 
-export const ANIMALS: Animal[] = [CAT, TIGER, RABBIT];
+const PIG: Animal = {
+  name: "PIG",
+  face: {
+    ears: " Λ _ Λ",
+    eyes: "(ㆍ∞ㆍ)",
+  },
+};
+
+export const ANIMALS: Animal[] = [CAT, TIGER, RABBIT, PIG];
