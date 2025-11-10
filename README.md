@@ -1,22 +1,17 @@
 ### ASCII Pepero Day — Console Animation
 
-> ![pepero-demo](./pepero-gif.gif)
-> self-celebrating `pepero-day` with type-script practice
->
+> self-celebrating `pepero-day` with Typescript practice  <br/>
 > watch ascii animals eat pepero in your console
->
-> eating animation is simply implemented:
-> each frame shortens the pepro-stick to create a behavior of 'eating' sequence
-> rendered with ansi-escape codes.
-> [wiki-podia](https://en.wikipedia.org/wiki/ANSI_escape_code)
 
----
+![pepero-gif](https://github.com/user-attachments/assets/d70e4d23-1928-48d0-bdea-04a483109c4d)
+
+> simply implemented: <br/>
+> each frame shortens the pepro-stick to create a behavior of 'eating' sequence <br/>
+> rendered with ansi-escape codes. [wiki-podia](https://en.wikipedia.org/wiki/ANSI_escape_code)
 
 ### Run Locally
-
-> Prerequisites:
-> - Node.js (v20 or higher)
-> - npm
+> Node.js (v20 or higher) <br/>
+> npm
 
 ```bash
 # 1. Install dependencies
@@ -33,8 +28,6 @@ npm start
 ```bash
 npx ts-node src/main.ts
 ```
-
----
 
 ### Add Your Own Animal
 > To add a new animal
