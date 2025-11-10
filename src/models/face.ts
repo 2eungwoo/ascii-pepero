@@ -2,26 +2,26 @@ import { Animal } from "./animal";
 
 const CAT: Animal = {
   name: "CAT",
-  face : {
+  face: {
     ears: " /\\_/\\ ",
-    eyes: "( o.o )"
+    eyes: "( o.o )",
   },
-}
+};
 
 const TIGER: Animal = {
   name: "TIGER",
-  face : {
+  face: {
     ears: " /\\_/\\ ",
-    eyes: "( =.= )"
+    eyes: "( =.= )",
   },
-}
+};
 
 const RABBIT: Animal = {
   name: "RABBIT",
-  face : {
+  face: {
     ears: " (\\_/) ",
-    eyes:  "( •_• )"
+    eyes: "( •_• )",
   },
-}
+};
 
 export const ANIMALS: Animal[] = [CAT, TIGER, RABBIT];
