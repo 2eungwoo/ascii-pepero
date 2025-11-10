@@ -5,9 +5,7 @@
 */
 export const RESET_COLOR = "\x1b[0m"; // 색깔 초기화
 export const STICK_PART_COLOR= "\x1b[38;5;130m"; // 과자부분 색깔
-
-// 초코부분 
-export const FLAVORS_COLOR = [
+export const FLAVORS_COLOR = [ // 초코부분 색깔
     {
         name: "BASE",
         code: "\x1b[38;5;94m"

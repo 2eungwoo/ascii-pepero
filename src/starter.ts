@@ -1,10 +1,11 @@
-import { FRAME_MS } from "../const";
-import { Pepero } from "./pepero";
-import { PeperoRenderer } from "./pepero-renderer";
+import { FRAME_MS } from "./const/const";
+import { Pepero } from "./models/pepero";
+import { Renderer } from "./renderer";
 
-export class PeperoStarter {
+
+export class Starter {
     private pepero = new Pepero();
-    private renderer = new PeperoRenderer();
+    private renderer = new Renderer();
     private timer?: NodeJS.Timeout;
 
     start() {
