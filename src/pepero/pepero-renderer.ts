@@ -23,7 +23,7 @@ export class PeperoRenderer {
         moveCursorUp(this.TOTAL_LINES);
         printFaces();
 
-        renderPepero(p.choco_len, p.flavor.code);
+        renderPepero(p.chocoLen, p.flavor.code);
         // ts에서 get()도 이렇게 접근
         // js 컴파일된 모습이 get: function() {..} 이렇게 생김
 

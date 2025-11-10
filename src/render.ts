@@ -62,9 +62,9 @@ function makePeperoPart(content: string, repeat: number) {
    }
 }
 
-export function renderPepero(choco_len:number, flavor_color:string) {
+export function renderPepero(chocoLen:number, flavorColor:string) {
     // 초코부분
-    makePeperoPart(flavor_color + PEPERO_BAR + RESET_COLOR, choco_len);
+    makePeperoPart(flavorColor + PEPERO_BAR + RESET_COLOR, chocoLen);
 
     // 과자부분
     makePeperoPart(STICK_PART_COLOR + PEPERO_BAR + RESET_COLOR, STICK_PART_LEN)
@@ -73,7 +73,7 @@ export function renderPepero(choco_len:number, flavor_color:string) {
     makePeperoPart(PEPERO_GAP_BLANK, 1);
 
     // blank
-    const blank_part = CHOCO_PART_MAX - choco_len;
+    const blank_part = CHOCO_PART_MAX - chocoLen;
     makePeperoPart(PEPERO_GAP_BLANK, blank_part);
 
     console.log("");
