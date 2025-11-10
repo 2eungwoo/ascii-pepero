@@ -1,12 +1,9 @@
 import { COL_W } from "../const";
 import { ANIMALS } from "../models/face";
 import { center, padRight } from "../utils/align";
+import { moveCursorUp } from "../utils/terminal";
 
 export class AnimalRenderer {
-  printHeader() {
-    console.log("🍫 🍭 ASCII PEPERO DAY - !\n");
-  }
-
   printNames() {
     let row = "";
     for (const a of ANIMALS) {
@@ -34,8 +31,8 @@ export class AnimalRenderer {
   }
 
   renderAnimal() {
-    this.printHeader();
     this.printNames();
     this.printFaces();
+    moveCursorUp(1);
   }
 }

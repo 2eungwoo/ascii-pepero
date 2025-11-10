@@ -10,6 +10,7 @@ import {
 } from "../const";
 import { ANIMALS } from "../models/face";
 import { stripAnsi } from "../utils/strip-ansi";
+import { moveCursorUp } from "../utils/terminal";
 
 export class PeperoRenderer {
   constructor(private readonly animals = ANIMALS) {}
@@ -35,6 +36,5 @@ export class PeperoRenderer {
     this.draw(STICK_PART_COLOR + PEPERO_BAR + RESET_COLOR, STICK_PART_LEN); // 과자부분
     this.draw(PEPERO_GAP_BLANK, 1); // tip부분 (고정)
     this.draw(PEPERO_GAP_BLANK, CHOCO_PART_MAX - chocoLen); // blank
-    console.log("");
   }
 }

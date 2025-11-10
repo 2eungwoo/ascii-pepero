@@ -1,6 +1,8 @@
 import { FRAME_MS, TOTAL_LINES } from "./const";
 import { Pepero } from "./models/pepero";
 import { AnimalRenderer } from "./render/animal-renderer";
+import { FooterRenderer } from "./render/footer-renderer";
+import { HeaderRenderer } from "./render/header-renderer";
 import { PeperoRenderer } from "./render/pepero-renderer";
 import { clearScreen, moveCursorUp } from "./utils/terminal";
 
@@ -8,11 +10,12 @@ export class Starter {
   private readonly pepero = new Pepero();
   private readonly animalRenderer = new AnimalRenderer();
   private readonly peperoRenderer = new PeperoRenderer();
+  private readonly headerRenderer = new HeaderRenderer();
+  private readonly footerRenderer = new FooterRenderer();
   private timer?: NodeJS.Timeout;
 
   init() {
     clearScreen();
-    this.animalRenderer.renderAnimal();
   }
 
   start() {
@@ -26,11 +29,10 @@ export class Starter {
 
   private renderFrame() {
     moveCursorUp(TOTAL_LINES);
+    this.headerRenderer.printHeader();
     this.animalRenderer.renderAnimal();
-    moveCursorUp(1);
     this.peperoRenderer.render(this.pepero.chocoLen, this.pepero.flavor.code);
-    console.log("[ctrl/cmd + c] to save your pepero");
-    moveCursorUp(1);
     this.pepero.eat();
+    this.footerRenderer.printFooter();
   }
 }
