@@ -1,6 +1,6 @@
 ### ASCII Pepero Day — Console Animation
 
-> ![pepero-demo](./assets/pepero-demo.gif)
+> ![pepero-demo](./pepero-gif.gif)
 > self-celebrating `pepero-day` with type-script practice
 >
 > watch ascii animals eat pepero in your console
@@ -12,8 +12,7 @@
 
 ---
 
-
-### 🚀 Run Locally
+### Run Locally
 
 > Prerequisites:
 > - Node.js (v20 or higher)
