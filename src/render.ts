@@ -1,10 +1,12 @@
 import {
-    RESET,
-    STICK,
+    RESET_COLOR,
+    STICK_PART_COLOR,
     COL_W,
     MOUTH_X,
-    CHOCO_MAX,
-    STICK_LEN,
+    CHOCO_PART_MAX,
+    STICK_PART_LEN,
+    PEPERO_GAP_BLANK,
+    PEPERO_BAR,
 } from "./const";
 import { ANIMALS } from "./models/animal_face";
 import { padRight, center } from "./utils";
@@ -16,7 +18,7 @@ export function printHeader() {
 export function printNames() {
     let row = "";
     for(const a of ANIMALS) {
-      row += center(a.name, COL_W); 
+      row += center(a.name, COL_W);
     }
     // 각 동물 이름은 col_width 폭만큼 정렬 후 이어붙임
     console.log(row); // 가로 한 줄로 출력
@@ -38,53 +40,41 @@ export function printFaces() {
     }
 }
 
-function makePeperoCell(content: string) { // 빼뺴로 위치 입에 오게 만들기
-  const left = " ".repeat(MOUTH_X);
-  const right = " ".repeat(COL_W - MOUTH_X - 2); // -2는 호출부의 "||".length임
-  return left + content + right;
-  // left: 입 x좌표 까지 공백
-  // right: col_width에서 2만큼 뺌 (뺴뺴로가 || 이라서 2인데 이것도 param.length하는게 낫나)
+const ANSI_REGEX = /\x1B\[[0-9;]*m/g;
+// 뺴뺴로 막대를 입 위치로 배치
+// left: 입 x좌표까지 공백
+// right: col_width에서 content.length 뺸 만큼 공백
+function alignAndMakeCell(content: string) {
+    const visible = content.replace(ANSI_REGEX, "") // 색상 ansi 코드 제거
+    const left = " ".repeat(MOUTH_X);
+    const right = " ".repeat(COL_W - MOUTH_X - visible.length);
+    return left + content + right;
 }
 
-export function printPepero(choco_len:number, flavor_color:string) {
-  // 초코부분
-  for(let i=0; i<choco_len; i++) {
-    const choco_part = makePeperoCell(flavor_color + "||" + RESET);
-    let row = "";
-    for(const _ of ANIMALS) {
-      row += choco_part;
-    }
-    console.log(row);
-  }
+function makePeperoPart(content: string, repeat: number) {
+    const cell = alignAndMakeCell(content);
+    for(let i=0; i<repeat; i++) {
+     let row = "";
+      for(const _ of ANIMALS) {
+        row += cell;
+      }
+      console.log(row);
+   }
+}
 
-  // 과자부분
-  for(let i=0; i<STICK_LEN; i++) {
-    const stick_part = makePeperoCell(STICK + "||" + RESET);
-    let row = "";
-    for(const _ of ANIMALS) {
-      row += stick_part;
-    }
-    console.log(row);
-  }
+export function renderPepero(choco_len:number, flavor_color:string) {
+    // 초코부분
+    makePeperoPart(flavor_color + PEPERO_BAR + RESET_COLOR, choco_len);
 
-  // tip부분 자리 유지
-  const tip_position = makePeperoCell("  ");
-  let tipRow = "";
-  for(const _ of ANIMALS) {
-    tipRow += tip_position;
-  }
-  console.log(tipRow);
+    // 과자부분
+    makePeperoPart(STICK_PART_COLOR + PEPERO_BAR + RESET_COLOR, STICK_PART_LEN)
 
-  // blank
-  const blank_part = CHOCO_MAX - choco_len;
-  for(let i=0; i<blank_part; i++) {
-    const cell = makePeperoCell("  ");
-    let cellRow = "";
-    for(const _ of ANIMALS) {
-      cellRow += cell;
-    }
-    console.log(cellRow);
-  }
-  
-  console.log("");
+    // tip부분 (고정)
+    makePeperoPart(PEPERO_GAP_BLANK, 1);
+
+    // blank
+    const blank_part = CHOCO_PART_MAX - choco_len;
+    makePeperoPart(PEPERO_GAP_BLANK, blank_part);
+
+    console.log("");
 }
