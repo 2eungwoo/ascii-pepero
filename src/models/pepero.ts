@@ -1,4 +1,4 @@
-import { CHOCO_PART_MAX, FLAVORS_COLOR } from "../const/const";
+import { CHOCO_PART_MAX, FLAVORS_COLOR } from "../const";
 
 export class Pepero {
     chocoLen = CHOCO_PART_MAX;

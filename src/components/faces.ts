@@ -1,18 +1,15 @@
-import { CHOCO_PART_MAX, COL_W, STICK_PART_LEN } from "../const/const";
+import { CHOCO_PART_MAX, COL_W, FACE_LINE_COUNT, STICK_PART_LEN } from "../const";
 import { ANIMALS } from "../models/animal_face";
 import { padRight, center } from "../utils/terminal";
 
-export const FACE_LINE_COUNT = 3;
-export const EXTRA_BLANK_LINES = 2;
-
 export function getFixedFrameLines() {
-    return FACE_LINE_COUNT + EXTRA_BLANK_LINES + 1;
+    return FACE_LINE_COUNT;
 }
 export function getFrameHeaderLines() {
-    return FACE_LINE_COUNT + 1;
+    return FACE_LINE_COUNT;
 }
 export function getPeperoMaxLines() {
-    return CHOCO_PART_MAX + STICK_PART_LEN + 2;
+    return CHOCO_PART_MAX + STICK_PART_LEN;
 }
 
 export function printNames() {

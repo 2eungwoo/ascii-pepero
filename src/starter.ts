@@ -1,4 +1,5 @@
-import { FRAME_MS } from "./const/const";
+
+import { FRAME_MS } from "./const";
 import { Pepero } from "./models/pepero";
 import { Renderer } from "./renderer";
 

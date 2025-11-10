@@ -1,4 +1,4 @@
-import { CHOCO_PART_MAX, STICK_PART_LEN } from "./const/const";
+
 import { printFaces } from "./components/faces";
 import { printHeader } from "./components/header";
 import { printNames } from "./components/faces";
@@ -6,6 +6,7 @@ import { printNames } from "./components/faces";
 import { clearScreen, moveCursorUp } from "./utils/terminal";
 import { Pepero } from "./models/pepero";
 import { renderPepero } from "./components/pepero";
+import { CHOCO_PART_MAX, STICK_PART_LEN } from "./const";
 
 export class Renderer {
     // 커서 올려야되는 라인 수
@@ -19,17 +20,13 @@ export class Renderer {
 
     init() {
         clearScreen();
-        printHeader();
-        printNames();
-        printFaces();
+        this.animation();
         console.log();
     }
 
     renderFrame(p: Pepero) {
         moveCursorUp(this.TOTAL_LINES);
-        printHeader();
-        printNames();
-        printFaces();
+        this.animation();
         console.log();
 
         renderPepero(p.chocoLen, p.flavor.code);
@@ -39,5 +36,11 @@ export class Renderer {
         console.log("[ctrl/cmd + c] to save your pepero");
         moveCursorUp(1);
 
+    }
+
+    animation() {
+        printHeader();
+        printNames();
+        printFaces();
     }
 }

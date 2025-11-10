@@ -1,14 +1,5 @@
-import {
-    RESET_COLOR,
-    STICK_PART_COLOR,
-    COL_W,
-    MOUTH_X,
-    CHOCO_PART_MAX,
-    STICK_PART_LEN,
-    PEPERO_GAP_BLANK,
-    PEPERO_BAR,
-  } from "../const/const";
-  import { ANIMALS } from "../models/animal_face";
+import { CHOCO_PART_MAX, COL_W, MOUTH_X, PEPERO_BAR, PEPERO_GAP_BLANK, RESET_COLOR, STICK_PART_COLOR, STICK_PART_LEN } from "../const";
+import { ANIMALS } from "../models/animal_face";
 import { stripAnsi } from "../utils/strip-ansi";
 
 
