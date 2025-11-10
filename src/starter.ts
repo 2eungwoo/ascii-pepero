@@ -28,7 +28,7 @@ export class Starter {
   private renderFrame() {
     moveCursorUp(TOTAL_LINES);
     this.animalRenderer.renderAnimal();
-    console.log();
+    moveCursorUp(1);
     this.peperoRenderer.render(this.pepero.chocoLen, this.pepero.flavor.code);
     console.log("[ctrl/cmd + c] to save your pepero");
     moveCursorUp(1);
